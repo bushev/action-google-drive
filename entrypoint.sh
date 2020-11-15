@@ -18,6 +18,7 @@ if [ -n "$DOWNLOAD_FROM" ]; then
     skicka -no-browser-auth download -ignore-times "$DOWNLOAD_FROM" "$DOWNLOAD_TO"
 elif [ -n "$UPLOAD_TO" ]; then
     echo 'Input upload-to has been specified. This action will run the upload.'
+    skicka mkdir -p "$(dirname "${UPLOAD_TO}")"
     skicka -no-browser-auth upload -ignore-times "$UPLOAD_FROM" "$UPLOAD_TO"
 
     # Remove outdated
